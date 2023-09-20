@@ -1,0 +1,18 @@
+{
+    "builds": [
+        {
+            "src": "iub_cgpa_system/wsgi.py",
+            "use": "@vercel/python",
+            "config": {
+                "maxLambdaSize": "15mb",
+                "runtime": "python3.11"
+            }
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "iub_cgpa_system/wsgi.py"
+        }
+    ]
+}
