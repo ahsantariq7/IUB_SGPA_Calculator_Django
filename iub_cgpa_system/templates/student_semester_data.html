@@ -1,0 +1,126 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>IUB CGPA SYSTEM|Semester_Data</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+            integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+        <link rel="icon" type="image/png" sizes="16x16" href="{% static '/logo/logi_iub.png' %}">
+    </head>
+
+    <body>
+        <img src="{% static '/logo/logi_iub.png' %}" class="rounded mx-auto d-block" alt="...">
+        </div>
+
+        <div class="card shadow m-5">
+            <div class="card-body">
+                <h5 class="p-2 text-primary " style="border-bottom : 2x solid primary">Input Data And Leave Blanks if
+                    not
+                    required.</h5>
+
+            </div>
+
+        </div>
+        <form action="" method="post">
+            <!--{{semester}}={{semester_1}},{{semester_2}},{{semester_3}},{{semester_4}},{{semester_5}},{{semester_6}},{{semester_7}},{{semester_8}},{{semester_9}}-->
+            {% csrf_token %}
+
+            <table class="table table-hover text-primary">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Subjects</th>
+                        <th scope="col">Credit Hours</th>
+                        <th scope="col">Obtained_Marks</th>
+                        <th scope="col">Total_Marks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in total %}
+                    <tr>
+                        <th scope="row">{{i}}</th>
+                        <td><label for="id_subject_{{i}}">Subject {{i}}:</label>
+                            <select name="subject_{{i}}" id="id_subject_{{i}}">
+                                <option value="" selected="">---------</option>
+
+                                <option value="THEORY">THEORY</option>
+
+                                <option value="THOERY_LAB">THEORY_LAB</option>
+
+                                <option value="WORKSHOP">WORKSHOP</option>
+
+                                <option value="PRACTICAL">PRACTICAL</option>
+
+                                <option value="LAB">LAB</option>
+
+                            </select>
+                        </td>
+                        <td>
+                            <label for="id_credit_hour_{{i}}">Credit hour {{i}}:</label>
+                            <select name="credit_hour_{{i}}" id="id_credit_hour_{{i}}">
+                                <option value="">---------</option>
+
+                                <option value="1">1</option>
+
+                                <option value="2">2</option>
+
+                                <option value="3">3</option>
+
+                                <option value="4">4</option>
+
+                                <option value="5">5</option>
+
+                                <option value="6">6</option>
+
+                                <option value="7">7</option>
+
+                                <option value="8">8</option>
+
+                                <option value="9">9</option>
+
+                            </select>
+                        </td>
+                        <td>
+                            <label for="id_obtained_marks_{{i}}">Obtained marks {{i}}:</label>
+                            <input type="number" name="obtained_marks_{{i}}" value="0" id="id_obtained_marks_{{i}}">
+                        </td>
+                        <td>
+                            <label for="id_total_marks_{{i}}">Total marks {{i}}:</label>
+                            <select name="total_marks_{{i}}" id="id_total_marks_{{i}}">
+                                <option value="">---------</option>
+
+                                <option value="25">25</option>
+
+                                <option value="50">50</option>
+
+                                <option value="100">100</option>
+
+                                <option value="150">150</option>
+
+                                <option value="200">200</option>
+
+                                <option value="250">250</option>
+
+                                <option value="300">300</option>
+
+                            </select>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <div class="col-md-12 text-center text-primary">
+                <button type="submit" class="btn btn-outline-primary my-4 text-center">Calculate</button><br>
+
+            </div>
+        </form>
+    </body>
+
+</html>

@@ -1,0 +1,53 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CGPA SYSTEM | Result</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="icon" type="image/png" sizes="16x16" href="{% static '/logo/logi_iub.png' %}">
+    </head>
+
+    <body>
+        <img src="{% static '/logo/logi_iub.png' %}" class="rounded mx-auto d-block" alt="...">
+        </div>
+
+        <div class="card shadow m-5">
+            <div class="card-body">
+                <h5 class="p-2 text-primary " style="border-bottom : 2x solid primary">Result/Final Output :</h5>
+
+            </div>
+
+        </div>
+        <div class="card shadow m-5">
+            <div class="card-body">
+                <table class="table table-dark table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">CGPA/SGPA</th>
+                            <th scope="col">Last Semester</th>
+                            <th scope="col">Current Semester</th>
+                            <th scope="col">Calculated</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>{{last}} </td>
+                            <td>{{semester_gpa}} </td>
+                            <td>{{final}}</td>
+                        </tr>
+
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+    </body>
+
+</html>
